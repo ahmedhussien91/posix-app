@@ -1,0 +1,7 @@
+{
+    "cmake.sourceDirectory": "${workspaceFolder}/libraries",
+    "cmake.configureOnOpen": true,
+    "files.associations": {
+        "file.h": "c"
+    }
+}
