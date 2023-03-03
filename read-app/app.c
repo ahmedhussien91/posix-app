@@ -1,19 +1,27 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <signal.h>
 #include "thpool.h"
 #include "file.h"
 
 
+
 void printing_demon() {
 	while(1) {
-		printf("printing_demon is up and running");
-		sleep(10);
+		puts("\nprinting_demon is up and running\n");
+		sleep(4);
 		}
 }
 
+void Handle(int s) {
+  puts("\nStoping readapp application........\n");
+ }
+
 
 int main() {
+
+    signal(SIGINT, Handle);
     // open threads for each task
     puts("Making threadpool with 4 threads");
 	threadpool thpool = thpool_init(4);
