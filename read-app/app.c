@@ -16,21 +16,23 @@ void printing_demon() {
 
 void Handle(int s) {
   puts("\nStoping readapp application........\n");
+  exit(0);
  }
 
 
 int main() {
 
-    signal(SIGINT, Handle);
+    signal(SIGTERM, Handle);
+    signal(SIGKILL, Handle);
     // open threads for each task
     puts("Making threadpool with 4 threads");
 	threadpool thpool = thpool_init(4);
 
     // thread to read from file
+    thpool_add_work(thpool, printing_demon, (char *)"filename");
     thpool_add_work(thpool, stdinRead, (char *)"stdinRead");
     thpool_add_work(thpool, open_read_file, (char *)"filename");
     
-    thpool_add_work(thpool, printing_demon, (char *)"filename");
 
     // thread to read from socket 
 
