@@ -1,0 +1,4 @@
+sudo cp ./build/read-app/readapp ~/rfs_bb/bin
+sudo cp ./build/read-app/readapp ~/bb_sysd/bin
+sudo cp ./build/read-app/readapp ~/bb_sysv/bin
+
