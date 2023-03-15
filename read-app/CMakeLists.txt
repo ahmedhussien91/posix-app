@@ -3,3 +3,7 @@ project(posix-readapp)
 
 add_executable(readapp app.c)
 target_link_libraries(readapp threadpool file -static)
+
+INSTALL(TARGETS readapp
+		DESTINATION bin	
+	)
